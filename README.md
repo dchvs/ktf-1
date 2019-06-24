@@ -1,5 +1,20 @@
 # Kernel Test Framework (KTF)
 
+## Installation
+
+```js
+export KERNEL_SRC=<kernel-headers-path>
+
+<build-path>$ cmake <ktfx-path> -DCMAKE_INSTALL_PREFIX=<installation-path>
+
+make
+
+make install
+
+```
+
+## Description
+
 KTF is a Google Test-like environment for writing C unit tests for
 kernel code.  Tests are implemented as kernel modules which declare
 each test as part of a test case.  The body of each test case
