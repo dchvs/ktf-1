@@ -5,7 +5,7 @@
 ```js
 export KERNEL_SRC=<kernel-headers-path>
 
-<build-path>$ cmake <ktfx-path> -DCMAKE_INSTALL_PREFIX=<installation-path>
+<build-path>$ cmake <ktf-path> -DCMAKE_INSTALL_PREFIX=<installation-path>
 
 make
 
