@@ -8,7 +8,7 @@ set(SRC_FILES ktf_debug.cpp
  )
 
 set (INCLUDE_FILES
-              ${CMAKE_CURRENT_SOURCE_DIR}/../shared/ktf_int.h
+              ${CMAKE_CURRENT_SOURCE_DIR}/../lib/ktf_int.h
               ${CMAKE_CURRENT_SOURCE_DIR}/../kernel/ktf.h
               ${CMAKE_CURRENT_SOURCE_DIR}/../kernel/ktf_test.h
               ${CMAKE_CURRENT_SOURCE_DIR}/../kernel/ktf_map.h

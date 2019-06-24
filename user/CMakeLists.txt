@@ -19,13 +19,13 @@ endif()
 
 
 # Include directories
-include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/../shared
+include_directories ( ${CMAKE_CURRENT_SOURCE_DIR}/../lib
                       ${CMAKE_CURRENT_SOURCE_DIR}
                       ${LIBNL3_INCLUDE_DIRS}/libnl3)
 
 # -I...
 link_directories(     ${SRC_NAME}
-                      ${CMAKE_CURRENT_SOURCE_DIR}/../shared
+                      ${CMAKE_CURRENT_SOURCE_DIR}/../lib
                       ${LIBNL3_INCLUDE_DIRS}/libnl3)
 
 # -L...
