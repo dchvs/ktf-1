@@ -21,13 +21,13 @@
 #include "ktf_int.h"
 #include "ktf_debug.h"
 
-#ifdef HAVE_LIBNL3
+//#ifdef HAVE_LIBNL3
 #include <netlink/version.h>
-#else
-#define nl_socket_alloc nl_handle_alloc
-#define nl_socket_free nl_handle_destroy
-#define nl_sock nl_handle
-#endif
+//#else
+//#define nl_socket_alloc nl_handle_alloc
+//#define nl_socket_free nl_handle_destroy
+//#define nl_sock nl_handle
+//#endif
 
 
 extern "C"
