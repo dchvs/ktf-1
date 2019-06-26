@@ -35,6 +35,6 @@ add_custom_target(driver ALL
 )
 
 # Install the module
-install(FILES ktf.ko DESTINATION lib/modules/${CMAKE_SYSTEM_VERSION}/kernel/drivers )
+install(FILES ktf.ko DESTINATION ../lib/modules/${CMAKE_SYSTEM_VERSION}/kernel/drivers )
 
 include(CPack)
