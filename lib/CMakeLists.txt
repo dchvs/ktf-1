@@ -31,4 +31,4 @@ add_library(${LIB_NAME} SHARED ${SRC_FILES} ${INCLUDE_FILES})
 
 
 install(TARGETS ${LIB_NAME} DESTINATION lib)
-install(FILES ${INCLUDE_FILES} DESTINATION include)
+install(FILES ${INCLUDE_FILES} DESTINATION include/ktf)
