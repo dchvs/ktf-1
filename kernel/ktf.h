@@ -253,8 +253,8 @@ static inline int ktf_no_probe_support(void)
 #define	KTF_ENTRY_PROBE_ARG1		(regs->uregs[1])
 #endif /* CONFIG_ARM */
 #ifdef CONFIG_ARM64
-#define	KTF_ENTRY_PROBE_ARG0		(regs->uregs[0])
-#define	KTF_ENTRY_PROBE_ARG1		(regs->uregs[1])
+#define	KTF_ENTRY_PROBE_ARG0		(regs->regs[0])
+#define	KTF_ENTRY_PROBE_ARG1		(regs->regs[1])
 #endif /* CONFIG_ARM64 */
 #ifdef CONFIG_SPARC
 #define	KTF_ENTRY_PROBE_ARG0		(regs->u_regs[UREG_I0])
