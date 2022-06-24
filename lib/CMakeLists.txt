@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION ${CMAKE_VERSION})
 
 set(LIB_NAME ktf)
 set(SRC_FILES ktf_debug.cpp ktf_unlproto.c ktf_run.cpp ktf_int.cpp)
