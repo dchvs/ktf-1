@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION ${CMAKE_VERSION})
 
 if((NOT DEFINED ENV{KERNEL_SRC}))
   message(
