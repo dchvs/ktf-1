@@ -21,7 +21,10 @@ make install
 ## Installation
 
 ```js
-<build-path>$ cmake <ktf-path> -DKERNEL_SRC=<kernel-headers-path> -DARCH=<ARCH> -DCMAKE_INSTALL_PREFIX=<installation-path>
+git clone git@github.com:dchvs1/ktf.git
+cd ktf/
+mkdir build/ && cd build/
+cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local/ -DKERNEL_SRC=<kernel-headers-path> -DARCH=<ARCH>
 
 make
 
