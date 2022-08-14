@@ -24,7 +24,7 @@ make install
 git clone git@github.com:dchvs/ktf.git
 cd ktf/
 mkdir build/ && cd build/
-cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local/ -DKERNEL_SRC=<kernel-headers-path> -DARCH=<ARCH>
+cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local/ -DKERNEL_SRC=<kernel-source-path> -DARCH=<ARCH> -DCROSS_COMPILE=<$CROSS_COMPILE>  -DKERNEL_CONFIG=<allyesconfig>
 
 make
 
