@@ -2,34 +2,84 @@
 
 ## Requirements
 
+* NetLink
 * Google Test Framework
-* Netlink: libnl-3-dev libnl-genl-3-dev
+* Target platform configured Kernel.
 
-Install the GTest Framework from source code.
+Machine builds.
+* qemuarch64
+
+## Build KTF for QEMU ARM64 (qemuarch64)
+
+1. Setup a workdir. We are going to exemplify build into a containarized workdir.
+WORKDIR=<ktf_workdir>
+
+ARCH=arm64
+
+1. Install NetLink headers.
+```bash
+apt-get install libnl-3-dev libnl-genl-3-dev
+```
+
+2. Install the GTest Framework from source code.
 
 ```js
+cd $WORKDIR
+
 git clone git@github.com:google/googletest.git
 cd googletest/
 git checkout release-1.10.0
 
-mkdir build/ && cd build/
-cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local/ -DBUILD_SHARED_LIBS=ON -DGTEST_HAS_PTHREAD=0
+S=<path/to/googletest/source>
+B=<path/to/googletest/build>
+O=${B}/output/
+
+mkdir -p ${B} && cd ${B}
+
+cmake ${S} -DCMAKE_INSTALL_PREFIX=${O} -DBUILD_SHARED_LIBS=ON -DGTEST_HAS_PTHREAD=0
 make
 make install
 ```
 
-## Installation
+3. Target platform configured Kernel.
+```bash
+cd $WORKDIR
+
+git clone git://git.yoctoproject.org/linux-yocto
+cd linux-yocto
+
+S=<path/to/linux-yocto/source>
+B=<path/to/linux-yocto/build>
+O=${B}/output/
+
+mkdir -p ${B} && cd ${B}
+
+# Get you a configured Kernel.
+KERNEL_CONFIG=allyesconfig
+make -C ${S} ARCH=${ARCH} O=${O} CROSS_COMPILE=${CROSS_COMPILE} ${KERNEL_CONFIG}
+make -C ${S} ARCH=${ARCH} O=${O} CROSS_COMPILE=${CROSS_COMPILE} scripts prepare
+```
+
+## Cross compilation
 
 ```js
+cd $WORKDIR
+
 git clone git@github.com:dchvs/ktf.git
 cd ktf/
-mkdir build/ && cd build/
-cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local/ -DKERNEL_SRC=<kernel-headers-path> -DARCH=<ARCH>
+
+S=<path/to/ktf/source>
+B=<path/to/ktf/build>
+O=${B}/output/
+
+mkdir -p ${B} && cd ${B}
+
+KERNEL_SRC=<path/to/linux-yocto/configured/kernel/>
+
+cmake ${S} -DCMAKE_INSTALL_PREFIX=${O} -DKERNEL_SRC=${KERNEL_SRC} -DARCH=${ARCH} -DCROSS_COMPILE=${CROSS_COMPILE} -DCMAKE_C_COMPILER=${CROSS_COMPILE}gcc
 
 make
-
 make install
-
 ```
 
 ## Description

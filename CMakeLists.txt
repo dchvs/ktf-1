@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION ${CMAKE_VERSION})
 
+project("KTF")
+
 # Errors on warnings
 set(C_WARNINGS "-Wall -Werror")
 set(CXX_WARNINGS "-Wall -Werror")
