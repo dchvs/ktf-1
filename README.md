@@ -1,37 +1,5 @@
 # Kernel Test Framework (KTF)
 
-## Requirements
-
-* Google Test Framework
-* Netlink: libnl-3-dev libnl-genl-3-dev
-
-Install the GTest Framework from source code.
-
-```js
-git clone git@github.com:google/googletest.git
-cd googletest/
-git checkout release-1.10.0
-
-mkdir build/ && cd build/
-cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local/ -DBUILD_SHARED_LIBS=ON -DGTEST_HAS_PTHREAD=0
-make
-make install
-```
-
-## Installation
-
-```js
-git clone git@github.com:dchvs/ktf.git
-cd ktf/
-mkdir build/ && cd build/
-cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local/ -DKERNEL_SRC=<kernel-source-path> -DARCH=<ARCH> -DCROSS_COMPILE=<$CROSS_COMPILE>  -DKERNEL_CONFIG=<allyesconfig>
-
-make
-
-make install
-
-```
-
 ## Description
 
 KTF is a Google Test-like environment for writing C unit tests for
