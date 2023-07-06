@@ -19,6 +19,8 @@
 #include "ktf_compat.h"
 #include "ktf_kallsyms.h"
 
+static DEFINE_MUTEX(module_mutex);
+
 /* It may seem odd that we use a refcnt field in ktf_cov_entry structures
  * in addition to using krefcount management via the ktf_map.  The reasoning
  * here is that if we enable and then disable coverage, we do not want to
