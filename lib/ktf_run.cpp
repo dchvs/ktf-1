@@ -17,6 +17,8 @@
 namespace ktf
 {
 
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(Kernel);
+
 class KernelMetaFactory;
 
 class Kernel : public ::testing::TestWithParam<std::string>
@@ -116,16 +118,12 @@ int Kernel::AddToRegistry()
 
   ::testing::internal::ParameterizedTestCaseInfo<Kernel>* tci =
       ::testing::UnitTest::GetInstance()->parameterized_test_registry()
-      .GetTestCasePatternHolder<Kernel>( "Kernel", ::testing::internal::CodeLocation("", 0));
+      .GetTestCasePatternHolder<Kernel>( "Kernel", ::testing::internal::CodeLocation(__FILE__, __LINE__));
 
   for (stringvec::iterator it = t.begin(); it != t.end(); ++it)
   {
     ::testing::internal::TestMetaFactory<Kernel>* mf = new KernelMetaFactory();
-#if HAVE_CODELOC_FOR_ADDTESTPATTERN
-    tci->AddTestPattern(it->c_str(), "", mf, ::testing::internal::CodeLocation("", 0));
-#else
-    tci->AddTestPattern(it->c_str(), "", mf);
-#endif
+    tci->AddTestPattern(it->c_str(), "", mf, ::testing::internal::CodeLocation(__FILE__, __LINE__));
   }
 
   tci->AddTestSuiteInstantiation("", &gtest_query_tests, &gtest_name_from_info, NULL, 0);
